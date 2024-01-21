@@ -89,10 +89,12 @@ pub fn main() !void {
         if (ball_pos.x <= 0.0) {
             ball_pos = screenCenter();
             player2_score += 1;
+            ball_vel = mulvf32(ball_vel, 1.1);
         }
         if (ball_pos.x > width()) {
             ball_pos = screenCenter();
             player1_score += 1;
+            ball_vel = mulvf32(ball_vel, 1.1);
         }
         if (raylib.CheckCollisionRecs(player1_rect, ball_rect)) {
             ball_vel.x = @fabs(ball_vel.x);
